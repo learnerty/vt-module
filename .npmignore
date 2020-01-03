@@ -1,0 +1,15 @@
+examples/
+packages/
+public/
+build/
+config/
+script/
+node_modules/
+
+
+vue.config.js
+babel.config.js
+*.map
+*.min.js
+*.umd.js
+*.umd.min.js
