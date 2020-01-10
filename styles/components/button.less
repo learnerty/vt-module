@@ -1,0 +1,169 @@
+@import '../common/common.less'; // 默认文字色
+@button-text-color: @rule-text;
+@button-text-placeholder-color: @placeholder-text; // 默认边框颜色
+@button-border-color: @border-color;
+@button-border-shallow-color: @border-color-shallow; // 白色背景色
+@button-background-white: @white-bg; // 圆角
+@button-border-radius: @border-radius; // 白色文本
+@button-text-white: @white-text; // 透明背景
+@button-background-transparent: @transparent-color; // 主题色
+@button-primary-color: @primary-color; // 成功色
+@button-success-color: @success-color; // 警告色
+@button-warning-color: @warning-color; // 危险色
+@button-danger-color: @danger-color; // 主题色高亮3
+@button-primary-color-light3: @primary-color-light3; // 主题色高亮6
+@button-primary-color-light6: @primary-color-light6; // 主题色高亮9
+@button-primary-color-light9: @primary-color-light9; // 成功色高亮3
+@button-success-color-light3: @success-color-light3; // 成功色高亮6
+@button-success-color-light6: @success-color-light6; // 警告色高亮3
+@button-warning-color-light3: @warning-color-light3; // 警告色高亮6
+@button-warning-color-light6: @warning-color-light6; // 危险色高亮3
+@button-danger-color-light3: @danger-color-light3; // 危险色高亮6
+@button-danger-color-light6: @danger-color-light6;
+
+#btnStyle(@color, @border-color, @background-color, @hover-color, @hover-border-color, @hover-background-color) {
+    color: @color;
+    border-color: @border-color;
+    background-color: @background-color;
+    &:active:not(.is-disabled),
+    &:hover:not(.is-disabled) {
+        color: @hover-color;
+        border-color: @hover-border-color;
+        background-color: @hover-background-color;
+    }
+}
+
+#btnStyleGhost(@ghost-color, @ghost-border-color, @ghost-background-color, @ghost-hover-color, @ghost-hover-border-color, @ghost-hover-background-color) {
+    color: @ghost-color;
+    border-color: @ghost-border-color;
+    background-color: @ghost-background-color;
+    &:active:not(.is-disabled),
+    &:hover:not(.is-disabled) {
+        color: @ghost-hover-color;
+        border-color: @ghost-hover-border-color;
+        background-color: @ghost-hover-background-color;
+    }
+}
+
+.vt-button {
+    display: inline-block;
+    outline: none;
+    border: 1px solid @button-border-color;
+    border-radius: @button-border-radius;
+    padding: 8px 16px;
+    cursor: pointer;
+
+    &--default {
+        &.is-disabled {
+            #btnStyle(@button-text-placeholder-color, @button-border-shallow-color, @button-background-white, @button-primary-color, @button-primary-color-light3, @button-primary-color-light9);
+        }
+        #btnStyle(@button-text-color, @button-border-color, @button-background-white, @button-primary-color, @button-primary-color-light3, @button-primary-color-light9);
+    }
+
+    &--default--ghost {
+        &.is-disabled {
+            #btnStyle(@button-text-placeholder-color, @button-border-shallow-color, @button-background-transparent,@button-primary-color,@button-primary-color,@button-background-transparent);
+        }
+        #btnStyleGhost(@button-text-white, @button-background-white, @button-background-transparent,@button-primary-color,@button-primary-color,@button-background-transparent);
+    }
+
+    &--primary {
+        &.is-disabled {
+            #btnStyle(@button-text-white, @button-primary-color-light6, @button-primary-color-light6, @button-primary-color, @button-primary-color-light3, @button-primary-color-light9);
+        }
+        #btnStyle(@button-text-white, @button-primary-color, @button-primary-color, @button-text-white, @button-primary-color-light3, @button-primary-color-light3);
+    }
+
+    &--primary--ghost {
+        &.is-disabled {
+            #btnStyle(@button-text-placeholder-color, @button-primary-color-light6, @button-background-transparent,@button-primary-color,@button-primary-color,@button-background-transparent);
+        }
+        #btnStyle(@button-primary-color, @button-primary-color, @button-background-transparent,@button-primary-color-light3,@button-primary-color-light3,@button-background-transparent);
+    }
+
+    &--success {
+        &.is-disabled {
+            #btnStyle(@button-text-white, @button-success-color-light6, @button-success-color-light6, @button-primary-color, @button-primary-color-light3, @button-primary-color-light9);
+        }
+        #btnStyle(@button-text-white, @button-success-color, @button-success-color, @button-text-white, @button-success-color-light3, @button-success-color-light3);
+    }
+
+    &--success--ghost {
+        &.is-disabled {
+            #btnStyle(@button-text-placeholder-color, @button-success-color-light6, @button-background-transparent,@button-primary-color,@button-primary-color,@button-background-transparent);
+        }
+        #btnStyle(@button-success-color, @button-success-color, @button-background-transparent,@button-success-color-light3,@button-success-color-light3,@button-background-transparent);
+    }
+
+    &--warning {
+        &.is-disabled {
+            #btnStyle(@button-text-white, @button-warning-color-light6, @button-warning-color-light6, @button-primary-color, @button-primary-color-light3, @button-primary-color-light9);
+        }
+        #btnStyle(@button-text-white, @button-warning-color, @button-warning-color, @button-text-white, @button-warning-color-light3, @button-warning-color-light3);
+    }
+
+    &--warning--ghost {
+        &.is-disabled {
+            #btnStyle(@button-text-placeholder-color, @button-warning-color-light6, @button-background-transparent,@button-primary-color,@button-primary-color,@button-background-transparent);
+        }
+        #btnStyle(@button-warning-color, @button-warning-color, @button-background-transparent,@button-warning-color-light3,@button-warning-color-light3,@button-background-transparent);
+    }
+
+    &--danger {
+        &.is-disabled {
+            #btnStyle(@button-text-white, @button-danger-color-light6, @button-danger-color-light6, @button-primary-color, @button-primary-color-light3, @button-primary-color-light9);
+        }
+        #btnStyle(@button-text-white, @button-danger-color, @button-danger-color, @button-text-white, @button-danger-color-light3, @button-danger-color-light3);
+    }
+
+    &--danger--ghost {
+        &.is-disabled {
+            #btnStyle(@button-text-placeholder-color, @button-danger-color-light6, @button-background-transparent,@button-primary-color,@button-primary-color,@button-background-transparent);
+        }
+        #btnStyle(@button-danger-color, @button-danger-color, @button-background-transparent,@button-danger-color-light3,@button-danger-color-light3,@button-background-transparent);
+    }
+
+    &--dashed {
+        &.is-disabled {
+            #btnStyle(@button-text-placeholder-color, @button-border-shallow-color, @button-background-white, @button-primary-color, @button-primary-color-light3, @button-primary-color-light9);
+        }
+        #btnStyle(@button-text-color, @button-border-color, @button-background-white, @button-primary-color, @button-primary-color-light3, @button-primary-color-light9);
+        border-style: dashed;
+    }
+
+    &--dashed--ghost {
+        &.is-disabled {
+            #btnStyle(@button-text-placeholder-color, @button-border-shallow-color, @button-background-transparent,@button-primary-color,@button-primary-color,@button-background-transparent);
+        }
+        #btnStyle(@button-text-white, @button-background-white, @button-background-transparent,@button-primary-color,@button-primary-color,@button-background-transparent);
+    }
+
+    &--text {
+        &.is-disabled {
+            #btnStyle(@button-primary-color-light6, @button-background-transparent, @button-background-transparent, @button-primary-color-light3, @button-background-transparent, @button-background-transparent);
+        }
+        #btnStyle(@button-primary-color, @button-background-transparent, @button-background-transparent, @button-primary-color-light3, @button-background-transparent, @button-background-transparent);
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &--text--ghost {
+        &.is-disabled {
+            #btnStyle(@button-text-placeholder-color, @button-background-transparent, @button-background-transparent,@button-primary-color,@button-background-transparent,@button-background-transparent);
+        }
+        #btnStyle(@button-text-white, @button-background-transparent, @button-background-transparent,@button-primary-color,@button-background-transparent,@button-background-transparent);
+    }
+
+    &.is-circle {
+        padding: 8px;
+        border-radius: 50%;
+    }
+
+    &.is-round {
+        border-radius: 20px;
+    }
+
+    &.is-disabled {
+        cursor: not-allowed;
+    }
+}

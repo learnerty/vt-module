@@ -1,4 +1,4 @@
-# ty-p-test
+# vt-module
 
 ## Project setup
 ```
