@@ -5,6 +5,6 @@ module.exports = {
   },
   'button': {
     input: 'packages/button/index.js',
-    output: 'ty-button'
+    output: 'vtButton'
   },
 }
